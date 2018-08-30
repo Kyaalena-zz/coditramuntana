@@ -1,0 +1,36 @@
+<div id="product-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><%= title %></h4>
+      </div>
+
+      <%= form_for @disco,  remote: true do |f| %>
+      <div class="modal-body">
+      <div class="form-group">
+          <%= f.label "seleccione un cantante" %>
+          <%= f.collection_select( :cantante_id,  Cantante.all, :id, :nombre, {:prompt => 'Lista de Cantantes'})   %>
+          <!-- estuve tratando de darle el estilo a el collection_select sin embargo al agregar al final
+          {:class => 'form-control'} como lo indica el metodo habia problema con el hash y no guardaba los
+           datos -->
+          <small  class="form-text text-muted"> Solo puede agregar discos a cantantes de la lista</small>
+      </div>
+
+      <div class="form-group">
+          <%= f.label :nombre %>
+          <%= f.text_field :nombre,  :class => 'form-control'%>
+      </div>
+
+      <div class="form-group">
+          <%= f.label :caracteristica %>
+          <%= f.text_area :caracteristica,  :class => 'form-control' %>
+      </div>
+
+      <div class="modal-footer">
+          <%= f.submit 'Guardar', class:'btn btn-primary btn-lg btn-block' %>
+      </div>
+<% end %>
+    </div>
+  </div>
+</div>

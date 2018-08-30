@@ -1,0 +1,18 @@
+<h1>Lista de cantantes</h1>
+<table class="table table-striped">
+  <tr>
+    <th>Nombre</th>
+    <th>Caracteristica</th>
+    <th>Consultar</th>
+  </tr>
+
+  <% @cantantes.each do |cantante| %>
+    <tr>
+      <td><%= cantante.nombre %></td>
+      <td><%= cantante.caracteristica %></td>
+      <td><%= link_to 'Discos', cantante_discos_url(cantante), class:'btn btn-primary'%></td>
+    </tr>
+  <% end %>
+  </table>
+  <tr>
+  <th><%= link_to 'Regresar', musica_index_path, class:'btn btn-default'%></th></tr>

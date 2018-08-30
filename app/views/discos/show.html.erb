@@ -1,0 +1,15 @@
+
+<h1>Datos de Disco</h1>
+<table class="table table-striped">
+  <tr>
+    <th>Nombre</th>
+    <th>Caracteristica</th>
+  </tr>
+
+  <tr>
+    <th><%= @disco.nombre %></th>
+    <th><%= @disco.caracteristica %></th>
+  </tr>
+</table>
+  <%= link_to 'Regresar', discos_path, class:'btn btn-primary'%>
+  <%= link_to 'Menu Principal', musica_index_path, class:'btn btn-default'%>

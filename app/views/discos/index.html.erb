@@ -1,0 +1,31 @@
+<h1>Listando Discos</h1>
+<table class="table table-striped">
+  <tr>
+    <th>Nombre</th>
+    <th>Caracteristica</th>
+    <th>Editar</th>
+    <th>Eliminar</th>
+  </tr>
+
+  <% @discos.each do |disco| %>
+    <tr>
+      <!-- Los nombres de la lista de discos son linkeable y sustituye
+      el metodo Actualizar del CRUD -->
+      <td><%= link_to disco.nombre , disco_path(disco)  %></td>
+      <td><%= disco.caracteristica %></td>
+      <div class="btn-group">
+      <td><%= link_to 'Editar',  edit_disco_path(disco), class:'btn btn-primary', remote: true %></td>
+      <td><%= link_to 'Eliminar', disco_path(disco),
+              class: 'btn btn-danger',
+              method: :delete,
+              data: { confirm: '¿Está seguro de eliminar el disco?' } %></td>
+    </tr>
+
+  <% end %>
+
+  </div>
+</table>
+<tr>
+  <th><%= link_to 'Menu Principal', musica_index_path, class:'btn btn-default'%></th>
+  <td><%= link_to 'Nuevo', new_disco_path, class:'btn btn-primary' , remote: true%></td>
+</tr>
